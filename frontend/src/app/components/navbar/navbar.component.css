@@ -1,0 +1,13 @@
+.form-search{
+    width: 450px;
+}
+.avatar{
+    width: 38px;
+    height: 38px;
+}
+.active{
+    color: #27ae60 !important;
+}
+.dropdown-item{
+    cursor: pointer;
+}

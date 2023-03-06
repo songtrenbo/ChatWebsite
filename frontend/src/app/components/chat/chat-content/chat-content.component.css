@@ -1,0 +1,48 @@
+.message-list-wrapper {
+  border: 1px solid #ddd;
+  height: 570px;
+  position: relative;
+  overflow-y: scroll;
+}
+.message-list-wrapper .message-list {
+  padding: 0;
+}
+.message-list-wrapper .message-list li {
+  display: block;
+  padding: 20px 10px;
+  clear: both;
+  position: relative;
+  color: white;
+}
+
+.compose-area {
+  padding: 10px 0;
+  text-align: right;
+}
+.compose-box {
+  padding: 10px 0;
+}
+.recipient-box {
+  padding: 10px 0;
+}
+.recipient-box .bootstrap-tagsinput {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .recipient-box {
+    margin-top: 30px;
+  }
+}
+
+.btn-green {
+  background-color: #2ecc71;
+  border-color: #27ae60;
+  color: white;
+}
+
+.message-input {
+  height: 20px;
+  resize: none;
+}

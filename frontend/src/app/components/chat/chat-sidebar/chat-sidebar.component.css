@@ -1,0 +1,19 @@
+/* Component: Chat */
+ .chat-list-wrapper {
+  border: 1px solid #ddd;
+  height: 510px;
+  overflow-y: auto;
+}
+ .chat-list-wrapper .chat-list {
+  padding: 0;
+} 
+@media (max-width: 767px) {
+   .chat-list-wrapper {
+    border: 1px solid #ddd;
+    height: 300px;
+    overflow-y: auto;
+  }
+   .chat-list-wrapper .chat-list {
+    padding: 0;
+  }   
+}

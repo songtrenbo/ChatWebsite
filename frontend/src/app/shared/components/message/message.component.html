@@ -1,0 +1,14 @@
+<li [ngClass]="message.sender===userId ? 'right' : 'left'">
+  <span class="avatar tooltips" data-toggle="tooltip "  data-origina
+    l-title="Yanique Robinson">
+    <img src="{{user.profilePicture}}" alt="avatar" class="img-circle">
+  </span>
+  <div class="body">
+    <div class="message text-wrap text-break">
+      <span class="text">{{message.text}}</span>
+    </div>
+    <small class="timestamp">
+      <i class="fa fa-clock-o"></i>{{dateCaculate(message.createdAt)}}
+    </small>
+  </div>
+</li>

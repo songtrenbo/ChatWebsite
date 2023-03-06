@@ -1,0 +1,10 @@
+
+.panel-white {
+    border: 1px solid #dddddd;
+}
+.panel {
+    border-radius: 0;
+}
+.border-top-green {
+    border-top: 4px solid #27ae60 !important;
+}

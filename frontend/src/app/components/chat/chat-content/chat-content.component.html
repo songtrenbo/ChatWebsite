@@ -1,0 +1,41 @@
+<div>
+  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;">
+    <div class="message-list-wrapper" style="width: auto; " #scrollMe [scrollTop]="scrollMe.scrollHeight">
+      <div class="text-center w-100 mt-2" *ngIf="!isAllMessages">
+        <a class="btn btn-default" (click)="loadMessages()">Load more messages</a>
+      </div>
+      <div *ngIf="messages.length === 0" class="d-flex align-items-center justify-content-center h-100 text-center">
+        <h3>Let's say something to your friend!</h3>
+      </div>
+      <ul class="message-list">
+        <ng-container *ngFor="let message of messages">
+            <app-message [message]="message"></app-message>
+        </ng-container>
+
+      </ul>
+    </div>
+    <div class="slimScrollBar"
+      style="width: 7px; position: absolute; top: 265px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 187.092px; background: rgb(0, 0, 0);">
+    </div>
+    <div class="slimScrollRail"
+      style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);">
+    </div>
+  </div>
+
+  <div class="compose-box">
+    <form  #messageForm="ngForm" class="row">
+      <div class="col-md-10">
+        <textarea id="btn-input" class="form-control message-input" (keyup.enter)="createNewMessage()" placeholder="Type your message here..." name="email" [(ngModel)]="messageContent" required></textarea>
+      </div>
+      <div class="col-md-2 pull-right">
+        <button class="btn btn-green btn-sm" (click)="createNewMessage()" type="submit" [disabled]="!messageForm.valid">
+          <i class="bi bi-send-fill"></i> Send
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+

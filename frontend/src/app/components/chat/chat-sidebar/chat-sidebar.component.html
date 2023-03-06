@@ -1,0 +1,64 @@
+<div class="compose-area w-100">
+    <a href="javascript:void(0);" class="btn btn-danger my-1 text-center" data-bs-toggle="modal" data-bs-target="#newChatModal"
+        data-bs-whatever="@mdo"><i class="fa fa-edit"></i> New Chat</a>
+</div>
+
+<div class="modal fade" id="newChatModal" tabindex="-1" aria-labelledby="newChatModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newChatModalLabel">New Chat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Search your friend here:</label>
+                        <input type="text" class="form-control" id="search-box" name="search" [(ngModel)]="searchText"
+                            autocomplete="off">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <ng-container >
+                        <div class="row mt-2 p-2 border d-flex align-items-center" *ngFor="let user of users">
+                            <div class="col-md-3">
+                                <img src="{{user.profilePicture}}" class="img-thumbnail" alt="">
+                            </div>
+                            <div class="col-md-7">
+                                <h5>{{user.name}}</h5>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-success" (click)="newConversation(user._id)">Add</button>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div *ngIf="users.length<=0" class="text-center w-100">
+                    <h4>User not found!</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 550px;">
+        <div class="chat-list-wrapper" style="overflow-y: auto; width: auto; height: 550px;">
+            <ul class="chat-list">
+                <ng-container *ngFor="let conversation of conversations">
+                    <app-chat-item [userId]="conversation.members[0]" [conversationId]="conversation._id">
+                    </app-chat-item>
+                </ng-container>
+            </ul>
+        </div>
+        <div class="slimScrollBar"
+            style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 478.639px; background: rgb(0, 0, 0);">
+        </div>
+        <div class="slimScrollRail"
+            style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);">
+        </div>
+    </div>
+</div>

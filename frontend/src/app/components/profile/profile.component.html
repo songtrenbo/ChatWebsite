@@ -1,0 +1,48 @@
+<div class="container mt-3">
+  <div class="row">
+    <div style="text-align: center">
+    </div>
+  </div>
+  <img src="{{img}}" alt="d">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 d-flex justify-content-center">
+      <form class="w-25">
+        <div class="container-img">
+          <img src="{{imageSrc || token.profilePicture}}" alt="" class="img-fluid profile-img">
+          <input class="upload-btn" type="file" name="image" (change)="selectImage($event)" accept=".png, .jpg, .jpeg"/>
+        </div>
+        <button class="btn btn-outline-secondary w-100" (click)="onSubmit()">Change picture</button>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 ">
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input disabled type="email" class="form-control" id="email" aria-describedby="emailHelp"
+            value="{{token.email}}">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" value="{{token.name}}">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword">
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary w-50 p-2">Change profile</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<a routerLink='/chat/{{conversationId}}' class="text-decoration-none text-black">
+    <li routerLinkActive="active">
+        <span class="avatar">
+            <img src="{{user.profilePicture}}" alt="avatar" class="img-circle">
+        </span>
+        <div class="body">
+            <div class="header">
+                <span class="username">{{user.name}}</span>
+                <small class="timestamp text-muted">
+                    <i class="fa fa-clock-o"></i>{{dateCaculate(message.createdAt)}}
+                </small>
+            </div>
+            <p>
+                {{message.text}}
+            </p>
+        </div>
+    </li>
+</a>

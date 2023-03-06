@@ -1,0 +1,96 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form class="border border-secondary rounded-2 p-4" [formGroup]="RegisterForm">
+        <div class="w-100 d-flex justify-content-center">
+          <h2>Register form</h2>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputName1" class="form-label">Name</label>
+          <input type="text" class="form-control" formControlName="name" [ngClass]="
+              (RegisterForm.get('name')?.touched ||
+                RegisterForm.get('name')?.dirty) &&
+              RegisterForm.get('name')?.hasError('required') ||
+              RegisterForm.get('name')?.hasError('minlength')
+                ? 'is-invalid'
+                : '' || (RegisterForm.get('name')?.touched ||
+                RegisterForm.get('name')?.dirty) &&
+              RegisterForm.get('name')?.valid
+                ? 'is-valid'
+                : ''
+            " />
+          <div class="invalid-feedback">
+            {{RegisterForm.get('name')?.hasError('required')?"Name is required":"" ||
+            RegisterForm.get('name')?.hasError('minlength')?"5 letters required":""}}
+
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" formControlName="email" [ngClass]="(RegisterForm.get('email')?.touched ||
+          RegisterForm.get('email')?.dirty) &&
+        RegisterForm.get('email')?.hasError('required') ||
+        RegisterForm.get('email')?.hasError('pattern')
+          ? 'is-invalid'
+          : '' || (RegisterForm.get('email')?.touched ||
+          RegisterForm.get('email')?.dirty) &&
+        RegisterForm.get('email')?.valid
+          ? 'is-valid'
+          : ''" />
+
+          <div class="invalid-feedback">
+            {{RegisterForm.get('email')?.hasError('required')?"Email is required":"" ||
+            RegisterForm.get('email')?.hasError('pattern')?"Invalid email":""}}
+
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password" [ngClass]="(RegisterForm.get('password')?.touched ||
+          RegisterForm.get('password')?.dirty) &&
+        RegisterForm.get('password')?.hasError('required')||
+        RegisterForm.get('password')?.hasError('minlength') 
+          ? 'is-invalid'
+          : '' || (RegisterForm.get('password')?.touched ||
+          RegisterForm.get('password')?.dirty) &&
+        RegisterForm.get('password')?.valid
+          ? 'is-valid'
+          : ''" />
+          <div class="invalid-feedback">
+            {{RegisterForm.get('password')?.hasError('required')?"Password is required":"" ||
+            RegisterForm.get('password')?.hasError('minlength')?"8 letters required":""}}
+
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="(RegisterForm.get('confirmPassword')?.touched ||
+          RegisterForm.get('confirmPassword')?.dirty) &&
+        RegisterForm.get('confirmPassword')?.hasError('required') || (RegisterForm.get('confirmPassword')?.value !== RegisterForm.get('password')?.value)
+
+          ? 'is-invalid'
+          : '' || (RegisterForm.get('confirmPassword')?.touched ||
+          RegisterForm.get('confirmPassword')?.dirty) &&
+        RegisterForm.get('confirmPassword')?.valid
+          ? 'is-valid'
+          : ''" />
+          <div class="invalid-feedback">
+            {{RegisterForm.get('confirmPassword')?.hasError('required')?"Confirm Password is required":"" ||
+            (RegisterForm.get('confirmPassword')?.value !== RegisterForm.get('password')?.value)?"Confirm password must match Password":""}}
+
+          </div>
+        </div>
+        <div class="mb-3">
+          <span>You already have an account? </span><a routerLink="/login">Login now!</a>
+        </div>
+        <div class="w-100 d-flex justify-content-center">
+          <button type="submit" class="btn btn-success fs-5 px-5" [disabled]="RegisterForm.invalid" (click)="register()">
+            Register now
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
